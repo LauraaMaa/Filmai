@@ -1,0 +1,34 @@
+
+CREATE TABLE IF NOT EXISTS kategorijos (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    pavadinimas VARCHAR(255) NOT NUll UNIQUE
+);
+CREATE TABLE IF NOT EXISTS filmai (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    reitingas DOUBLE,
+    pavadinimas VARCHAR(255) NOT NULL,
+    aprasas VARCHAR(500),
+    kategorijos_id INTEGER,
+    FOREIGN KEY (kategorijos_id) REFERENCES kategorijos(id)
+);
+CREATE TABLE IF NOT EXISTS vartotojai (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    vardas VARCHAR(255) NOT NULL,
+    pavarde VARCHAR(255) NOT NULL,
+    slaptazodis VARCHAR(255) NOT NULL,
+    tipas VARCHAR(15) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS rezervacijos (
+    vartotojo_id INTEGER,
+    filmai_id INTEGER,
+    FOREIGN KEY (vartotojo_id) REFERENCES vartotojai(id),
+    FOREIGN KEY (filmai_id) REFERENCES filmai(id)
+);
+CREATE TABLE IF NOT EXISTS pamegti_filmai (
+    vartotojo_id INTEGER,
+    filmai_id INTEGER,
+    FOREIGN KEY (vartotojo_id) REFERENCES vartotojai(id),
+    FOREIGN KEY (filmai_id) REFERENCES filmai(id)
+);
+DROP TABLES pamegti_filmai, rezervacijos, filmai, kategorijos;

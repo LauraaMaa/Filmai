@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@../style/stylesheet.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lt.kitm.controller.FilmaiVartotojasController">
+    <HBox alignment="CENTER" layoutX="340.0" layoutY="205.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+        <RadioButton fx:id="mygtukas_filmai" mnemonicParsing="false" selected="true" text="Filmai">
+            <styleClass>
+                <String fx:value="toggle-button" />
+                <String fx:value="button_group_element_left" />
+            </styleClass>
+         <toggleGroup>
+            <ToggleGroup fx:id="vartotojo_pasirinkimai" />
+         </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="mygtukas_rezervacijos" mnemonicParsing="false" text="Komentarai" toggleGroup="$vartotojo_pasirinkimai">
+            <styleClass>
+                <String fx:value="toggle-button" />
+                <String fx:value="button_group_element_middle" />
+            </styleClass>
+        </RadioButton>
+        <RadioButton fx:id="mygtukas_pamegti" mnemonicParsing="false" text="Informacija apie filmus" toggleGroup="$vartotojo_pasirinkimai">
+            <styleClass>
+                <String fx:value="toggle-button" />
+                <String fx:value="button_group_element_right" />
+            </styleClass>
+        </RadioButton>
+<!--        <RadioButton fx:id="mygtukas_komentuoti" mnemonicParsing="false" text="Komentuoti Filma" toggleGroup="$vartotojo_pasirinkimai">-->
+<!--            <styleClass>-->
+<!--                <String fx:value="toggle-button" />-->
+<!--                <String fx:value="button_group_element_right" />-->
+<!--            </styleClass>-->
+<!--        </RadioButton>-->
+    </HBox>
+   <VBox fx:id="turinys" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0" />
+   <Button mnemonicParsing="false" onAction="#onActionAtsijungti" text="Atsijungti" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+   <Label fx:id="zinute" alignment="CENTER" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" />
+</AnchorPane>
